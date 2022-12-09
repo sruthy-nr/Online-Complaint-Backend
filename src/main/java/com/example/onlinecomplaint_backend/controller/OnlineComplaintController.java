@@ -13,7 +13,7 @@ import java.util.Map;
 public class OnlineComplaintController {
 
     @Autowired
-    private UserDao dao;
+    UserDao dao;
 
     @CrossOrigin(origins = "*")
     @GetMapping("/")
@@ -24,7 +24,7 @@ public class OnlineComplaintController {
 
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/userregistration", consumes = "application/json", produces = "application/json")
-    public Map<String, String> UserRegistration(@RequestBody UserModel u){
+    public HashMap<String, String> UserRegistration(@RequestBody UserModel u){
         dao.save(u);
         HashMap<String, String> map=new HashMap<>();
         map.put("status","success");
